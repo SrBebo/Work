@@ -1,0 +1,3 @@
+- Nunca el front end consultas con la bases de datos
+- El backend se conecta a la base de datos
+- El frontend solo vista al usuario
