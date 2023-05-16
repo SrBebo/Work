@@ -1,46 +1,24 @@
-
-values={
-    'centimeters': 100,
-    'meters':1000,
-    'kilometers':100000
+values={#create our dictionary with the values we need to convert
+    'centimeters': 0.1,
+    'meters':0.01,
+    'kilometers':0.00001
 }
 
-option=input("Enter the option number that you prefer:\n"
-      "1. Centimeters to meters\n"
-      "2. Centimeters to kilometers\n"
-      "3. Meters to centimeters\n"
-      "4. Meters to kilometers \n"
-      "5. Kilometers to centimeters\n"
-      "6. Kilometers to meters\n"
-             )
-option='1'
-def validate_option(option):
-    if option in ['1','2','3','4','5','6']:
-        return True
-    else:
-        return False
+valueInMillimeters_to_convert=50#value to convert, this value is in millimeters
 
-if validate_option(option)==True:
-        value=float(input("Enter the value to convert: \n"))
-        if option == '1':
-            value=value/values['centimeters']
-            print("The result is:\n", value)
-        elif option == '2':
-            value=value/values['centimeters']/values['kilometers']
-            print("The result is:\n", value)
-        elif option == '3':
-            value=value*values['meters']
-            print("The result is:\n", value)
-        elif option == '4':
-            value=value/values['meters']
-            print("The result is:\n", value)
-        elif option == '5':
-            value=value*values['kilometers']
-            print("The result is:\n", value)
-        elif option == '6':
-            value=value*values['meters']/values['kilometers']
-            print("The result is:\n", value)
-        else:
-            print("Invalid option, please try again")
-else:
-    print("Invalid option, please try again")
+def convert_value_to_centimeters(valueInMillimeters_to_convert) -> float:#function to convert the value to centimeters
+    return valueInMillimeters_to_convert*values['centimeters']
+    
+def convert_value_to_meters(valueInMillimeters_to_convert) -> float:#function to convert the value to meters
+    return valueInMillimeters_to_convert*values['meters']
+
+def convert_value_to_kilometers(valueInMillimeters_to_convert) -> float: #function to convert the value to kilometers
+    return valueInMillimeters_to_convert*values['kilometers']
+
+
+print(str(valueInMillimeters_to_convert) + " mm is equal to " + str(convert_value_to_centimeters(valueInMillimeters_to_convert)) + " cm")
+print(str(valueInMillimeters_to_convert) + " mm is equal to " + str(convert_value_to_meters(valueInMillimeters_to_convert)) + " m")
+print(str(valueInMillimeters_to_convert) + " mm is equal to " + str(convert_value_to_kilometers(valueInMillimeters_to_convert)) + " km")
+
+
+
